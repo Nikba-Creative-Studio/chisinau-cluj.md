@@ -82,6 +82,11 @@ body {
     font-family: var(--bs-font-theme)!important;
 }
 
+.mx-n2 {
+    margin-right: -.5rem !important;
+    margin-left: -.5rem !important;
+}
+
 .text-inverse {
     color: var(--bs-body-text-inverse-color);
 }
@@ -96,3 +101,19 @@ body {
 }
 
 
+form.dark-fields .form-control {
+    background: rgba(255,255,255,.03);
+    border-color: rgba(255,255,255,.1);
+    color: #cacaca;
+    height: calc(1.5em + .8rem + 2px)!important;
+}
+
+form.dark-fields .form-control:focus {
+    box-shadow: none;
+}
+
+form.dark-fields .input-group-text {
+    background: rgba(255,255,255,.03);
+    border-color: rgba(255,255,255,.1);
+    color: #cacaca;
+}
