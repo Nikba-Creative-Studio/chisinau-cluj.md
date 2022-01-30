@@ -2,6 +2,10 @@
     background-color: var(--bs-navy);
 }
 
+.divider {
+    margin-bottom: -1px;
+}
+
 .logo {
     height: 3rem;
 }

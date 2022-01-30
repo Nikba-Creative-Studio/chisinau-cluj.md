@@ -1,5 +1,9 @@
+import { Hero } from "./Hero/Hero"
+
 export const Main = () => {
     return (
-        <h1>Main</h1>
+        <>
+            <Hero />
+        </>
     )
 }

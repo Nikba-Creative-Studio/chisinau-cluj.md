@@ -29,7 +29,7 @@
     --bs-light: #fefefe;
     --bs-gray: #f6f7f9;
     --bs-dark: #262b32;
-    --bs-primary: #3f78e0;
+    --bs-primary: 5f8fd;
     --bs-secondary: #aab0bc;
     --bs-success: #45c4a0;
     --bs-info: #54a8c7;
@@ -80,6 +80,7 @@
 
 body {
     font-family: var(--bs-font-theme)!important;
+    background: #fff8ef !important;
 }
 
 .mx-n2 {
@@ -98,6 +99,10 @@ body {
 
 .text-inverse a:not(.btn):not([class*="link-"]):hover {
     color: var(--bs-white);
+}
+
+.text-navy {
+    color: var(--bs-navy);
 }
 
 
