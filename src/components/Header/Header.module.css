@@ -6,7 +6,18 @@
     color: #343f52;
     font-size: 1.1rem;
     font-weight: 600;
-    margin-left: 1rem;
-    margin-right: 1rem;
     text-align: center;
+    cursor: pointer;
 }
+
+
+@media screen and (max-width: 768px) {
+    .link {
+        border-bottom: 1px solid rgba(var(--bs-navy-rgb), .3);
+    }
+
+    .link:hover {
+        border-bottom: 1px solid rgba(var(--bs-navy-rgb), 1);
+    }
+}
+    

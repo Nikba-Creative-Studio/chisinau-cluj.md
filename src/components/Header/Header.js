@@ -1,42 +1,64 @@
 import classNames from 'classnames';
 import style from "./Header.module.css"
 import { Navbar, Nav, Container } from "react-bootstrap"
-
+import { Link } from "react-scroll";
 
 //Assets
 import { ReactComponent as Logo } from "../../assets/images/logo.svg"
 import { AiOutlineCalendar } from "react-icons/ai";
 
 export const Header = () => {
+
+    const nav = [
+        {
+            name: "Home",
+            link: "home"
+        },
+        {
+            name: "Destinații",
+            link: "destinations"
+        },
+        {
+            name: "Transport",
+            link: "transport"
+        },
+        {
+            name: "Contact",
+            link: "contact"
+        }
+    ]
+
     return (
-        <header className="bg-gray">
-            <Navbar bg="light" expand="lg">
-                <Container className="">
+        <Navbar bg="light" expand="lg" id="home">
+            <Container>
 
-                    <Navbar.Brand href="#home">
-                        <Logo className={classNames(style.logo, 'img-fluid')} />
-                    </Navbar.Brand>
+                <Navbar.Brand href="#home">
+                    <Logo className={classNames(style.logo, 'img-fluid')} />
+                </Navbar.Brand>
 
-                    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
 
-                    <Navbar.Collapse id="basic-navbar-nav">
-                        <Nav className="me-auto">
-                        </Nav>
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                    </Nav>
 
-                        <Nav>
-                            <Nav.Link className={style.link} href="#home">Principală</Nav.Link>
-                            <Nav.Link className={style.link} href="#destinations">Destinații</Nav.Link>
-                            <Nav.Link className={style.link} href="#services">Servicii</Nav.Link>
-                            <Nav.Link className={style.link} href="#testimonials">Ce spun clienții</Nav.Link>
-                            <Nav.Link className="d-none d-md-block btn btn-primary rounded-pill text-white px-4" href="#contact">
-                                <AiOutlineCalendar className="me-2" />
-                                Rezervă bilet
-                            </Nav.Link>
-                        </Nav>
+                    <Nav>
+                        {nav && 
+                            nav.map((item, index) => 
+                                <Link key={index} to={item.link} spy={true} smooth={true} duration={500} className={classNames(style.link, 'nav-link', 'mx-4')}>
+                                    {item.name}
+                                </Link>
+                            )
+                        }
 
-                    </Navbar.Collapse>
-                </Container>
-            </Navbar>
-        </header>
+                        <Link to="contact" spy={true} smooth={true} duration={500} className="d-none d-md-block btn btn-primary rounded-pill text-white px-4 ms-4" >
+                            <AiOutlineCalendar className="me-2" />
+                            Rezervă bilet
+                        </Link>
+                    </Nav>
+
+                </Navbar.Collapse>
+            </Container>
+        </Navbar>
     )
 }
