@@ -80,7 +80,7 @@
 
 body {
     font-family: var(--bs-font-theme)!important;
-    background: #fff8ef !important;
+    background: var(--bs-white)!important;
 }
 
 .mx-n2 {

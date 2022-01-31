@@ -1,9 +1,9 @@
 .nav {
-    background: linear-gradient(180deg, rgba(254,243,228,1) 0%, rgba(255,248,239,0) 100%);
+    background: #fffaf2;
 }
 
 .logo {
-    max-width: 100px;
+    width: 100px;
 }
 
 .link {

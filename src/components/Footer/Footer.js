@@ -62,13 +62,13 @@ export const Footer = ({ isMobile, data }) => {
                                 </li>
 
                                 <li className="btn btn-outline-secondary mb-2 mb-md-1 text-nowrap flex-fill me-1 me-md-0">
-                                    <a href={`whatsapp://send?phone=${phone_md}`} className="d-block">
+                                    <a href={`https://api.whatsapp.com/send?phone=${phone_md}`} className="d-block">
                                         <AiOutlineWhatsApp />  {whatsapp}
                                     </a>
                                 </li>
 
                                 <li className="btn btn-outline-secondary text-nowrap flex-fill ms-1 ms-md-0">
-                                    <a href={`viber://add?number=${phone_md}`} className="d-block">
+                                    <a href={`viber://chat?number=${phone_md}`} className="d-block">
                                         <SiViber />  {viber}
                                     </a>
                                 </li>

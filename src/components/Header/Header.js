@@ -19,17 +19,17 @@ export const Header = () => {
             link: "destinations"
         },
         {
-            name: "Transport",
-            link: "transport"
-        },
-        {
             name: "Contact",
             link: "contact"
+        },
+        {
+            name: "Transport",
+            link: "transport"
         }
     ]
 
     return (
-        <Navbar expand="lg" sticky="top" className={classNames(style.nav, 'pt-2', 'pt-md-5')} id="home">
+        <Navbar expand="lg" sticky="top" className={classNames(style.nav, 'pt-2', 'py-md-3')}>
             <Container>
 
                 <Navbar.Brand href="#home">

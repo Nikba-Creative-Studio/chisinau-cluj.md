@@ -10,7 +10,7 @@ export const Social = ({ data }) => {
                 href={facebook}
                 rel="noreferrer" 
                 target="_blank" 
-                className="btn btn-outline-secondary me-2  text-white"
+                className="btn btn-outline-secondary me-2 text-white"
             >
                 <AiOutlineFacebook />
             </a>
@@ -18,7 +18,7 @@ export const Social = ({ data }) => {
                 href={instagram}
                 rel="noreferrer" 
                 target="_blank" 
-                className="btn btn-outline-secondary me-2  text-white"
+                className="btn btn-outline-secondary me-2 text-white"
             >
                 <AiOutlineInstagram />
             </a>

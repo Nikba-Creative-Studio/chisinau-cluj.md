@@ -14,27 +14,45 @@ export const ContactForm = ({ data }) => {
     const [show, setShow] = useState(false);
 
     const { destinations } = data;
-    const [selectTwo, setSelectTwo] = useState(destinations);
+
     const [startDate, setStartDate] = useState(new Date());
 
-    const selectOne = destinations;
     const selectOneSelected = "Chișinău"
     const selectTwoSelected = "Cluj Napoca"
 
-    const handleSelectOne = (e) => {
-        setSelectTwo(destinations.filter(item => item !== e.target.value));
-        e.preventDefault();
-    }
-
-    const { register, formState: { errors }, handleSubmit } = useForm();
-    const onSubmit = data => {
+    const { register, reset, formState: { errors }, handleSubmit } = useForm();
+    
+    const onSubmit = async (data) => {
         console.log(data);
+
+        const body = {
+            type: "reservation",
+            name: data.name,
+            phone: data.phone,
+            from: data.from,
+            to: data.to,
+            passengers: data.passengers,
+            date: data.date,
+        }
+
+        try {
+            await fetch("https://api.chisinau-cluj.md/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(body)
+            });
+        } catch (error) {
+            console.log(error);
+        }
+        reset();
         setShow(true);
     }
      
 
     return (
-        <Form noValidate onSubmit={handleSubmit(onSubmit)} className="mt-5">
+        <Form noValidate onSubmit={handleSubmit(onSubmit)}>
             <Row>
                 <Col xs={12} md={6}>
                     <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -43,11 +61,10 @@ export const ContactForm = ({ data }) => {
                             aria-label="Selectați orașul de plecare" 
                             defaultValue={selectOneSelected} 
                             placeholder="Selectați orașul de plecare" 
-                            onChange={handleSelectOne}
                             {...register("from", { required: true })}
                         >
-                            {selectOne.map((destination, index) => (
-                                <option key={index} value={destination}>{destination}</option>
+                            {Object.keys(destinations).map((destination, index) => (
+                                <option key={index} value={destination}>{destination} - {destinations[destination].from}</option>
                             ))}
                         </Form.Select>
                         {errors.from && <span className="text-danger">Orașul de plecare este obligatoriu</span>}
@@ -63,8 +80,9 @@ export const ContactForm = ({ data }) => {
                             placeholder="Selectați orașul de sosire"
                             {...register("to", { required: true })}
                         >
-                            {selectTwo.map((destination, index) => (
-                                <option key={index} value={destination}>{destination}</option>
+                            
+                            {Object.keys(destinations).map((destination, index) => (
+                                <option key={index} value={destination}>{destination} - {destinations[destination].to}</option>
                             ))}
                         </Form.Select>
                         {errors.to && <span className="text-danger">Orașul de sosire este obligatoriu</span>}
