@@ -19,7 +19,7 @@ function App() {
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main data={data} />} />
       </Routes>
       <Footer isMobile={isMobile} data={data} />
     </Router>

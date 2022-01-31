@@ -29,7 +29,7 @@
     --bs-light: #fefefe;
     --bs-gray: #f6f7f9;
     --bs-dark: #262b32;
-    --bs-primary: 5f8fd;
+    --bs-primary: #3f78e0;
     --bs-secondary: #aab0bc;
     --bs-success: #45c4a0;
     --bs-info: #54a8c7;
@@ -103,6 +103,10 @@ body {
 
 .text-navy {
     color: var(--bs-navy);
+}
+
+.bg-navy {
+    background: var(--bs-navy)!important;
 }
 
 

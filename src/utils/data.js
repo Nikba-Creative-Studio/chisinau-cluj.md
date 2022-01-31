@@ -10,4 +10,5 @@ export const data =
     "facebook": "https://www.facebook.com/transport.chisinau.cluj.napoca",
     "instagram": "https://www.instagram.com/transport.chisinau.cluj.napoca/",
     "google": "https://g.page/chisinau-cluj-napoca?share",
+    "destinations": ["Chișinău", "Cluj Napoca", "Arad", "Deva", "Alba Iulia", "Sibiu", "Brașov", "Onești", "Bârlad", "Huși", "Timișoara", "Târgul Mureș", "Sovata", "Gheorghieni", "Bicaz", "Piatra Neamț", "Iași"],
 }

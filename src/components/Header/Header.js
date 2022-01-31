@@ -29,7 +29,7 @@ export const Header = () => {
     ]
 
     return (
-        <Navbar expand="lg" sticky="top" className={style.nav} id="home">
+        <Navbar expand="lg" sticky="top" className={classNames(style.nav, 'pt-2', 'pt-md-5')} id="home">
             <Container>
 
                 <Navbar.Brand href="#home">
@@ -51,7 +51,7 @@ export const Header = () => {
                             )
                         }
 
-                        <Link to="contact" spy={true} smooth={true} duration={500} className="d-none d-md-block btn btn-primary rounded-pill text-white px-4 ms-5" >
+                        <Link to="contact" spy={true} smooth={true} duration={500} className="d-none d-md-flex justify-content-center align-items-center btn btn-warning px-4 ms-5" >
                             <AiOutlineCalendar className="me-2" />
                             Rezervă bilet
                         </Link>
