@@ -26,13 +26,14 @@ export const ContactForm = ({ data }) => {
         console.log(data);
 
         const body = {
+            src: "chisinau-cluj.md",
             type: "reservation",
             name: data.name,
             phone: data.phone,
             from: data.from,
             to: data.to,
             passengers: data.passengers,
-            date: data.date,
+            date: startDate,
         }
 
         try {
@@ -97,7 +98,7 @@ export const ContactForm = ({ data }) => {
                             dateFormat="dd/MM/yyyy"
                             locale="ro" 
                             className="form-control" 
-                            onChange={(date) => setStartDate(date)} 
+                            onChange={(date) => setStartDate(date)}
                         />
                     </Form.Group>
                 </Col>

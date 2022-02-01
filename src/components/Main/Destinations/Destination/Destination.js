@@ -1,3 +1,5 @@
+import LazyLoad from 'react-lazyload';
+
 import { Card } from "react-bootstrap";
 import classNames from 'classnames';
 
@@ -10,7 +12,9 @@ export const Destination = ({ title, data }) => {
     return (
         <Card className="shadow-lg border-0">
             <Card.Body>
-                <img src={image} alt={title} className={classNames(style.image, 'img-fluid', 'rounded-circle', 'mb-3', 'mt-2')} />
+                <LazyLoad height={112}>
+                    <img src={image} alt={title} className={classNames(style.image, 'img-fluid', 'rounded-circle', 'mb-3', 'mt-2')} />
+                </LazyLoad>
                 <Card.Title>{title}</Card.Title>
                 <ul className="list-unstyled">
                     <li className="mb-3 text-muted">{station}</li>

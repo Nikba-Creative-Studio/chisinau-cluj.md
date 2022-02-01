@@ -1,3 +1,4 @@
+import LazyLoad from 'react-lazyload';
 import classNames from 'classnames';
 import { Container, Row, Col } from "react-bootstrap"
 import ReactTypingEffect from 'react-typing-effect'
@@ -5,7 +6,7 @@ import style from './Hero.module.css'
 import { Link } from "react-scroll"
 
 //Assets
-import hero from "../../../assets/images/hero.png"
+import hero from "../../../assets/images/hero.webp"
 
 import { GiCroissant, GiCoffeeCup, GiTeapotLeaves } from "react-icons/gi";
 import { MdWifi } from "react-icons/md";
@@ -51,9 +52,11 @@ export const Hero = ({ data }) => {
 
                     </Col>
                     <Col xs={12} md={6}>
-                        <figure>
-                            <img src={hero} alt="Cluj-Napoca" className="img-fluid" />
-                        </figure>
+                        <LazyLoad height={600}>
+                            <figure>
+                                <img src={hero} alt="Cluj-Napoca" className="img-fluid" />
+                            </figure>
+                        </LazyLoad>
                     </Col>
                 </Row>
                 

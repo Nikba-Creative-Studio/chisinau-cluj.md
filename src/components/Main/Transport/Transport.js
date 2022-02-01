@@ -1,3 +1,4 @@
+import LazyLoad from 'react-lazyload';
 import { Container, Row, Col } from "react-bootstrap"
 
 export const Transport = ({ data }) => {
@@ -17,9 +18,11 @@ export const Transport = ({ data }) => {
 
                     {Object.keys(transports).map((transport, index) => (
                         <Col key={index} className="align-self-start mb-5">
-                            <figure className="lift rounded mb-6">
-                                <img src={transports[transport].image} alt={transports[transport].model} className="img-fluid rounded" />
-                            </figure>
+                            <LazyLoad height={400}>
+                                <figure className="lift rounded mb-6">
+                                    <img src={transports[transport].image} alt={transports[transport].model} className="img-fluid rounded" />
+                                </figure>
+                            </LazyLoad>
                             <div className="text-muted">{transports[transport].number}</div>
                             <h4 className="text-navy">{transports[transport].model}</h4>
                         </Col>
