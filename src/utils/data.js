@@ -75,18 +75,18 @@ export const data =
     "transports": {
         "1": {
             "image" : require("../assets/images/transport/1.webp"),
-            "number": "BV 20 LCS",
+            "number": "B 19 LCS",
             "model": "Neoplan"
         },
         "2": {
             "image" : require("../assets/images/transport/2.webp"),
-            "number": "B 19 LCS",
+            "number": "BV 20 LCS",
             "model": "Neoplan"
         },
         "3": {
             "image" : require("../assets/images/transport/3.webp"),
-            "number": "BV 17 LCS",
-            "model": "VanHool"
+            "number": "RVP 705",
+            "model": "Volvo"
         },
     }
 
