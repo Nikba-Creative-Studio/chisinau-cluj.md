@@ -12,8 +12,9 @@ registerLocale('ro', ro)
 export const ContactForm = ({ data }) => {
 
     const [show, setShow] = useState(false);
+    const [showDirect, setShowDirect] = useState(false);
 
-    const { destinations } = data;
+    const { routes } = data;
 
     const [startDate, setStartDate] = useState(new Date());
 
@@ -23,8 +24,7 @@ export const ContactForm = ({ data }) => {
     const { register, reset, formState: { errors }, handleSubmit } = useForm();
     
     const onSubmit = async (data) => {
-        console.log(data);
-
+        
         const body = {
             src: "chisinau-cluj.md",
             type: "reservation",
@@ -36,6 +36,9 @@ export const ContactForm = ({ data }) => {
             date: startDate,
         }
 
+        console.log(data);
+
+        
         try {
             await fetch("https://api.chisinau-cluj.md/", {
                 method: "POST",
@@ -48,8 +51,11 @@ export const ContactForm = ({ data }) => {
             console.log(error);
         }
         reset();
+        
+        setShowDirect(data.from + " - " + data.to);
         setShow(true);
     }
+
      
 
     return (
@@ -64,8 +70,8 @@ export const ContactForm = ({ data }) => {
                             placeholder="Selectați orașul de plecare" 
                             {...register("from", { required: true })}
                         >
-                            {Object.keys(destinations).map((destination, index) => (
-                                <option key={index} value={destination}>{destination} - {destinations[destination].from}</option>
+                            {Object.keys(routes.from).map((route, index) => (
+                                <option key={index} value={route}>{route}</option>
                             ))}
                         </Form.Select>
                         {errors.from && <span className="text-danger">Orașul de plecare este obligatoriu</span>}
@@ -82,8 +88,8 @@ export const ContactForm = ({ data }) => {
                             {...register("to", { required: true })}
                         >
                             
-                            {Object.keys(destinations).map((destination, index) => (
-                                <option key={index} value={destination}>{destination} - {destinations[destination].to}</option>
+                            {Object.keys(routes.to).map((route, index) => (
+                                <option key={index} value={route}>{route}</option>
                             ))}
                         </Form.Select>
                         {errors.to && <span className="text-danger">Orașul de sosire este obligatoriu</span>}
@@ -126,7 +132,7 @@ export const ContactForm = ({ data }) => {
                             placeholder="Cojocari Ion"
                             aria-label="Cojocari Ion"
                             required
-                            {...register("name", { required: true, minLength: 10 })}
+                            {...register("name", { required: true, minLength: 5 })}
                         />
                         {errors.name?.type === 'required' && "Introduceți numele dumneavoastră"}
                     </Form.Group>
@@ -160,7 +166,7 @@ export const ContactForm = ({ data }) => {
                 
                 {show &&
                     <Alert variant="warning" className="mt-4 mt-md-3" onClose={() => setShow(false)} dismissible>
-                        Rezervare efectuată cu succes!. Vă mulțumim că ați ales călătorii noi!
+                        Rezervare efectuată cu succes!.<br /> { showDirect }<br /> Vă mulțumim că ați ales călătorii noi!
                     </Alert>
                 }
 

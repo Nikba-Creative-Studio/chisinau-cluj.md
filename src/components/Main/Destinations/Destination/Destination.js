@@ -7,7 +7,7 @@ import style  from "./Destination.module.css";
 
 export const Destination = ({ title, data }) => {
 
-    const { image, station, from, to } = data;
+    const { image, station } = data;
 
     return (
         <Card className="shadow-lg border-0">
@@ -18,8 +18,6 @@ export const Destination = ({ title, data }) => {
                 <Card.Title>{title}</Card.Title>
                 <ul className="list-unstyled">
                     <li className="mb-3 text-muted">{station}</li>
-                    <li>Ora de plecare: {from}</li>
-                    <li>Ora de sosire: {to}</li>
                 </ul>
             </Card.Body>
         </Card>
